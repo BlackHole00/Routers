@@ -1,0 +1,1 @@
+{"version": "undefined", "descriptive_name": "router", "subproject_dir": "subprojects", "subprojects": [{"name": "vx_utils", "version": "undefined", "descriptive_name": "lib_vx_utils"}, {"name": "raylib", "version": "undefined", "descriptive_name": "lib_raylib"}, {"name": "nuklear", "version": "undefined", "descriptive_name": "lib_nuklear"}]}

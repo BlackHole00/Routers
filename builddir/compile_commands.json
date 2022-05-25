@@ -1,0 +1,80 @@
+[
+  {
+    "directory": "D:\\Codes\\c\\router\\builddir",
+    "command": "\"ccache\" \"gcc\" \"-Isubprojects\\vx_utils\\libvx_utils.a.p\" \"-Isubprojects\\vx_utils\" \"-I..\\subprojects\\vx_utils\" \"-I..\\subprojects\\vx_utils\\src\" \"-fdiagnostics-color=always\" \"-pipe\" \"-D_FILE_OFFSET_BITS=64\" \"-Wall\" \"-Winvalid-pch\" \"-g\" -MD -MQ subprojects/vx_utils/libvx_utils.a.p/src_vx_file.c.obj -MF \"subprojects\\vx_utils\\libvx_utils.a.p\\src_vx_file.c.obj.d\" -o subprojects/vx_utils/libvx_utils.a.p/src_vx_file.c.obj \"-c\" ../subprojects/vx_utils/src/vx_file.c",
+    "file": "../subprojects/vx_utils/src/vx_file.c",
+    "output": "subprojects/vx_utils/libvx_utils.a.p/src_vx_file.c.obj"
+  },
+  {
+    "directory": "D:\\Codes\\c\\router\\builddir",
+    "command": "\"ccache\" \"gcc\" \"-Isubprojects\\vx_utils\\libvx_utils.a.p\" \"-Isubprojects\\vx_utils\" \"-I..\\subprojects\\vx_utils\" \"-I..\\subprojects\\vx_utils\\src\" \"-fdiagnostics-color=always\" \"-pipe\" \"-D_FILE_OFFSET_BITS=64\" \"-Wall\" \"-Winvalid-pch\" \"-g\" -MD -MQ subprojects/vx_utils/libvx_utils.a.p/src_vx_functions.c.obj -MF \"subprojects\\vx_utils\\libvx_utils.a.p\\src_vx_functions.c.obj.d\" -o subprojects/vx_utils/libvx_utils.a.p/src_vx_functions.c.obj \"-c\" ../subprojects/vx_utils/src/vx_functions.c",
+    "file": "../subprojects/vx_utils/src/vx_functions.c",
+    "output": "subprojects/vx_utils/libvx_utils.a.p/src_vx_functions.c.obj"
+  },
+  {
+    "directory": "D:\\Codes\\c\\router\\builddir",
+    "command": "\"ccache\" \"gcc\" \"-Isubprojects\\vx_utils\\libvx_utils.a.p\" \"-Isubprojects\\vx_utils\" \"-I..\\subprojects\\vx_utils\" \"-I..\\subprojects\\vx_utils\\src\" \"-fdiagnostics-color=always\" \"-pipe\" \"-D_FILE_OFFSET_BITS=64\" \"-Wall\" \"-Winvalid-pch\" \"-g\" -MD -MQ subprojects/vx_utils/libvx_utils.a.p/src_vx_math.c.obj -MF \"subprojects\\vx_utils\\libvx_utils.a.p\\src_vx_math.c.obj.d\" -o subprojects/vx_utils/libvx_utils.a.p/src_vx_math.c.obj \"-c\" ../subprojects/vx_utils/src/vx_math.c",
+    "file": "../subprojects/vx_utils/src/vx_math.c",
+    "output": "subprojects/vx_utils/libvx_utils.a.p/src_vx_math.c.obj"
+  },
+  {
+    "directory": "D:\\Codes\\c\\router\\builddir",
+    "command": "\"ccache\" \"gcc\" \"-Isubprojects\\vx_utils\\libvx_utils.a.p\" \"-Isubprojects\\vx_utils\" \"-I..\\subprojects\\vx_utils\" \"-I..\\subprojects\\vx_utils\\src\" \"-fdiagnostics-color=always\" \"-pipe\" \"-D_FILE_OFFSET_BITS=64\" \"-Wall\" \"-Winvalid-pch\" \"-g\" -MD -MQ subprojects/vx_utils/libvx_utils.a.p/src_vx_mem.c.obj -MF \"subprojects\\vx_utils\\libvx_utils.a.p\\src_vx_mem.c.obj.d\" -o subprojects/vx_utils/libvx_utils.a.p/src_vx_mem.c.obj \"-c\" ../subprojects/vx_utils/src/vx_mem.c",
+    "file": "../subprojects/vx_utils/src/vx_mem.c",
+    "output": "subprojects/vx_utils/libvx_utils.a.p/src_vx_mem.c.obj"
+  },
+  {
+    "directory": "D:\\Codes\\c\\router\\builddir",
+    "command": "\"ccache\" \"gcc\" \"-Isubprojects\\vx_utils\\libvx_utils.a.p\" \"-Isubprojects\\vx_utils\" \"-I..\\subprojects\\vx_utils\" \"-I..\\subprojects\\vx_utils\\src\" \"-fdiagnostics-color=always\" \"-pipe\" \"-D_FILE_OFFSET_BITS=64\" \"-Wall\" \"-Winvalid-pch\" \"-g\" -MD -MQ subprojects/vx_utils/libvx_utils.a.p/src_vx_panic.c.obj -MF \"subprojects\\vx_utils\\libvx_utils.a.p\\src_vx_panic.c.obj.d\" -o subprojects/vx_utils/libvx_utils.a.p/src_vx_panic.c.obj \"-c\" ../subprojects/vx_utils/src/vx_panic.c",
+    "file": "../subprojects/vx_utils/src/vx_panic.c",
+    "output": "subprojects/vx_utils/libvx_utils.a.p/src_vx_panic.c.obj"
+  },
+  {
+    "directory": "D:\\Codes\\c\\router\\builddir",
+    "command": "\"ccache\" \"gcc\" \"-Isubprojects\\nuklear\\libnuklear.a.p\" \"-Isubprojects\\nuklear\" \"-I..\\subprojects\\nuklear\" \"-I..\\subprojects\\nuklear\\include\" \"-I..\\subprojects\\raylib\\include\" \"-fdiagnostics-color=always\" \"-pipe\" \"-D_FILE_OFFSET_BITS=64\" \"-Wall\" \"-Winvalid-pch\" \"-g\" -MD -MQ subprojects/nuklear/libnuklear.a.p/include__implementation.c.obj -MF \"subprojects\\nuklear\\libnuklear.a.p\\include__implementation.c.obj.d\" -o subprojects/nuklear/libnuklear.a.p/include__implementation.c.obj \"-c\" ../subprojects/nuklear/include/_implementation.c",
+    "file": "../subprojects/nuklear/include/_implementation.c",
+    "output": "subprojects/nuklear/libnuklear.a.p/include__implementation.c.obj"
+  },
+  {
+    "directory": "D:\\Codes\\c\\router\\builddir",
+    "command": "\"ccache\" \"gcc\" \"-Irouter.exe.p\" \"-I.\" \"-I..\" \"-I..\\subprojects\\vx_utils\\src\" \"-I..\\subprojects\\raylib\\include\" \"-I..\\subprojects\\nuklear\\include\" \"-fdiagnostics-color=always\" \"-pipe\" \"-D_FILE_OFFSET_BITS=64\" \"-Wall\" \"-Winvalid-pch\" \"-g\" -MD -MQ router.exe.p/src_main.c.obj -MF \"router.exe.p\\src_main.c.obj.d\" -o router.exe.p/src_main.c.obj \"-c\" ../src/main.c",
+    "file": "../src/main.c",
+    "output": "router.exe.p/src_main.c.obj"
+  },
+  {
+    "directory": "D:\\Codes\\c\\router\\builddir",
+    "command": "\"ccache\" \"gcc\" \"-Irouter.exe.p\" \"-I.\" \"-I..\" \"-I..\\subprojects\\vx_utils\\src\" \"-I..\\subprojects\\raylib\\include\" \"-I..\\subprojects\\nuklear\\include\" \"-fdiagnostics-color=always\" \"-pipe\" \"-D_FILE_OFFSET_BITS=64\" \"-Wall\" \"-Winvalid-pch\" \"-g\" -MD -MQ router.exe.p/src_dk_matrix.c.obj -MF \"router.exe.p\\src_dk_matrix.c.obj.d\" -o router.exe.p/src_dk_matrix.c.obj \"-c\" ../src/dk_matrix.c",
+    "file": "../src/dk_matrix.c",
+    "output": "router.exe.p/src_dk_matrix.c.obj"
+  },
+  {
+    "directory": "D:\\Codes\\c\\router\\builddir",
+    "command": "\"ccache\" \"gcc\" \"-Irouter.exe.p\" \"-I.\" \"-I..\" \"-I..\\subprojects\\vx_utils\\src\" \"-I..\\subprojects\\raylib\\include\" \"-I..\\subprojects\\nuklear\\include\" \"-fdiagnostics-color=always\" \"-pipe\" \"-D_FILE_OFFSET_BITS=64\" \"-Wall\" \"-Winvalid-pch\" \"-g\" -MD -MQ router.exe.p/src_dk_state.c.obj -MF \"router.exe.p\\src_dk_state.c.obj.d\" -o router.exe.p/src_dk_state.c.obj \"-c\" ../src/dk_state.c",
+    "file": "../src/dk_state.c",
+    "output": "router.exe.p/src_dk_state.c.obj"
+  },
+  {
+    "directory": "D:\\Codes\\c\\router\\builddir",
+    "command": "\"ccache\" \"gcc\" \"-Irouter.exe.p\" \"-I.\" \"-I..\" \"-I..\\subprojects\\vx_utils\\src\" \"-I..\\subprojects\\raylib\\include\" \"-I..\\subprojects\\nuklear\\include\" \"-fdiagnostics-color=always\" \"-pipe\" \"-D_FILE_OFFSET_BITS=64\" \"-Wall\" \"-Winvalid-pch\" \"-g\" -MD -MQ router.exe.p/src_dk_geometry.c.obj -MF \"router.exe.p\\src_dk_geometry.c.obj.d\" -o router.exe.p/src_dk_geometry.c.obj \"-c\" ../src/dk_geometry.c",
+    "file": "../src/dk_geometry.c",
+    "output": "router.exe.p/src_dk_geometry.c.obj"
+  },
+  {
+    "directory": "D:\\Codes\\c\\router\\builddir",
+    "command": "\"ccache\" \"gcc\" \"-Irouter.exe.p\" \"-I.\" \"-I..\" \"-I..\\subprojects\\vx_utils\\src\" \"-I..\\subprojects\\raylib\\include\" \"-I..\\subprojects\\nuklear\\include\" \"-fdiagnostics-color=always\" \"-pipe\" \"-D_FILE_OFFSET_BITS=64\" \"-Wall\" \"-Winvalid-pch\" \"-g\" -MD -MQ router.exe.p/src_dk_gui.c.obj -MF \"router.exe.p\\src_dk_gui.c.obj.d\" -o router.exe.p/src_dk_gui.c.obj \"-c\" ../src/dk_gui.c",
+    "file": "../src/dk_gui.c",
+    "output": "router.exe.p/src_dk_gui.c.obj"
+  },
+  {
+    "directory": "D:\\Codes\\c\\router\\builddir",
+    "command": "\"ccache\" \"gcc\" \"-Irouter.exe.p\" \"-I.\" \"-I..\" \"-I..\\subprojects\\vx_utils\\src\" \"-I..\\subprojects\\raylib\\include\" \"-I..\\subprojects\\nuklear\\include\" \"-fdiagnostics-color=always\" \"-pipe\" \"-D_FILE_OFFSET_BITS=64\" \"-Wall\" \"-Winvalid-pch\" \"-g\" -MD -MQ router.exe.p/src_dk_router.c.obj -MF \"router.exe.p\\src_dk_router.c.obj.d\" -o router.exe.p/src_dk_router.c.obj \"-c\" ../src/dk_router.c",
+    "file": "../src/dk_router.c",
+    "output": "router.exe.p/src_dk_router.c.obj"
+  },
+  {
+    "directory": "D:\\Codes\\c\\router\\builddir",
+    "command": "\"ccache\" \"gcc\" \"-Irouter.exe.p\" \"-I.\" \"-I..\" \"-I..\\subprojects\\vx_utils\\src\" \"-I..\\subprojects\\raylib\\include\" \"-I..\\subprojects\\nuklear\\include\" \"-fdiagnostics-color=always\" \"-pipe\" \"-D_FILE_OFFSET_BITS=64\" \"-Wall\" \"-Winvalid-pch\" \"-g\" -MD -MQ router.exe.p/src_dk_misc.c.obj -MF \"router.exe.p\\src_dk_misc.c.obj.d\" -o router.exe.p/src_dk_misc.c.obj \"-c\" ../src/dk_misc.c",
+    "file": "../src/dk_misc.c",
+    "output": "router.exe.p/src_dk_misc.c.obj"
+  }
+]

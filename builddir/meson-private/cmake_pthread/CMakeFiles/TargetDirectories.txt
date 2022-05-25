@@ -1,0 +1,2 @@
+D:/Codes/c/router/builddir/meson-private/cmake_pthread/CMakeFiles/ALL_BUILD.dir
+D:/Codes/c/router/builddir/meson-private/cmake_pthread/CMakeFiles/ZERO_CHECK.dir

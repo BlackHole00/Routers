@@ -1,0 +1,146 @@
+#include <stdio.h>
+#include <memory.h>
+#include <vx_utils.h>
+
+#define DK_NO_LINK -1
+#define DK_INFINITY INT32_MAX
+#define DK_MATRIX_DATA(_MATRIX, _X, _Y) (_MATRIX)->data[(_Y) + ((_X) * (_MATRIX)->size)]
+
+typedef struct {
+    i32* data;
+    u32 size;
+} dk_Matrix;
+
+_VX_OPTION_CREATE_FOR_TYPE(VX_T(i32, vx_Vector))
+_VX_VECTOR_CREATE_FOR_TYPE(VX_T(i32, vx_Vector))
+
+dk_Matrix dk_matrix_new(u32 size) {
+    VX_ASSERT("Size must be > 0", size > 0)
+
+    dk_Matrix matrix;
+
+    matrix.data = vx_smalloc(sizeof(i32) * size * size);
+    matrix.size = size;
+
+    memset(matrix.data, 0, sizeof(i32) * size * size);
+
+    return matrix;
+}
+
+dk_Matrix dk_matrix_from_data(u32 size, i32* data) {
+    VX_ASSERT("Size must be > 0", size > 0)
+
+    dk_Matrix matrix;
+
+    matrix.data = data;
+    matrix.size = size;
+
+    return matrix;
+}
+
+void dk_matrix_free(dk_Matrix* matrix) {
+    vx_free(matrix->data);
+}
+
+i32 dk_dijkstra_distance(dk_Matrix* matrix, u32 start, u32 end) {
+    // the current distance from the start node and the end node.
+    i32* distance = vx_smalloc(sizeof(i32) * matrix->size);
+
+    distance[start] = 0;
+    for (int i = 1; i < matrix->size; i++) {
+        int current_node_idx = (i + start) % matrix->size;
+
+        distance[current_node_idx] = DK_INFINITY;
+    }
+
+    for (int i = 0; i < matrix->size; i++) {
+        int current_node_idx = (i + start) % matrix->size;
+
+        // iterate over all the other nodes.
+        for (int j = 0; j < matrix->size; j++) {
+            if (DK_MATRIX_DATA(matrix, current_node_idx, j) == DK_NO_LINK ||
+                distance[current_node_idx] + DK_MATRIX_DATA(matrix, current_node_idx, j) >= distance[j]
+            ) {
+                continue;
+            }
+
+            distance[j] = distance[current_node_idx] + DK_MATRIX_DATA(matrix, current_node_idx, j);
+        }
+    }
+
+    int res = distance[end];
+
+    vx_free(distance);
+
+    return res;
+}
+
+i32 dk_dijkstra_path(dk_Matrix* matrix, u32 start, u32 end, i32* buffer, usize buffer_size) {
+    // the current distance from the start node and the end node.
+    i32* distance = vx_smalloc(sizeof(i32) * matrix->size);
+
+    VX_T(VX_T(i32, vx_Vector), vx_Vector) paths = VX_T(VX_T(i32, vx_Vector), vx_vector_new)();
+    for (int i = 0; i < matrix->size; i++) {
+        VX_T(i32, vx_Vector) vec = VX_T(i32, vx_vector_new)();
+        VX_T(VX_T(i32, vx_Vector), vx_vector_push)(&paths, vec);
+    }
+
+    distance[start] = 0;
+    for (int i = 1; i < matrix->size; i++) {
+        int current_node_idx = (i + start) % matrix->size;
+
+        distance[current_node_idx] = DK_INFINITY;
+    }
+
+    for (int i = 0; i < matrix->size; i++) {
+        int current_node_idx = (i + start) % matrix->size;
+
+        // iterate over all the other nodes.
+        for (int j = 0; j < matrix->size; j++) {
+            if (DK_MATRIX_DATA(matrix, current_node_idx, j) == DK_NO_LINK ||
+                distance[current_node_idx] + DK_MATRIX_DATA(matrix, current_node_idx, j) >= distance[j]
+            ) {
+                continue;
+            }
+
+            distance[j] = distance[current_node_idx] + DK_MATRIX_DATA(matrix, current_node_idx, j);
+            VX_T(i32, vx_vector_clone)(&(VX_VD(&paths)[current_node_idx]), &(VX_VD(&paths)[j]));
+            VX_T(i32, vx_vector_push)(&(VX_VD(&paths)[j]), j);
+        }
+    }
+
+    int res = distance[end];
+
+    VX_T(i32, vx_vector_copy_to_buffer)(&(VX_VD(&paths)[end]), buffer, buffer_size);
+
+    vx_free(distance);
+    for (int i = 0; i < matrix->size; i++) {
+        VX_T(i32, vx_vector_free)(&(VX_VD(&paths)[i]));
+    }
+    VX_T(VX_T(i32, vx_Vector), vx_vector_free)(&paths);
+
+    return res;
+}
+
+int main() {
+    dk_Matrix m = dk_matrix_from_data(4, (i32[]) {
+        DK_NO_LINK,    9,          1,          2,
+        DK_NO_LINK,    DK_NO_LINK, DK_NO_LINK,    DK_NO_LINK,
+        DK_NO_LINK,    2,          DK_NO_LINK,    DK_NO_LINK,
+        DK_NO_LINK,    4,          DK_NO_LINK,    DK_NO_LINK
+    });
+
+    printf("%d\n", dk_dijkstra_distance(&m, 0, 1));
+    //printf("%d", MATRIX_DATA(&m, 0, 1));
+
+    i32 buffer[10];
+    memset(buffer, 0, sizeof(i32) * VX_ARRAY_ELEMENT_COUNT(buffer));
+    dk_dijkstra_path(&m, 0, 1, buffer, VX_ARRAY_ELEMENT_COUNT(buffer));
+    for (int i = 0; i < VX_ARRAY_ELEMENT_COUNT(buffer); i++) {
+        printf("%d: %d\n", i, buffer[i]);
+    }
+
+    vx_memory_print_state();
+
+    return 0;
+}
