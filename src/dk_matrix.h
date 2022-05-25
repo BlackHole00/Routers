@@ -2,8 +2,8 @@
 
 #include <vx_utils.h>
 
-#define DK_NO_LINK -1
-#define DK_INFINITY INT32_MAX
+#define DK_INFINITY INT16_MAX
+#define DK_NO_LINK DK_INFINITY
 #define DK_MATRIX_DATA(_MATRIX, _X, _Y) (_MATRIX)->data[(_Y) + ((_X) * (_MATRIX)->size)]
 
 typedef struct {

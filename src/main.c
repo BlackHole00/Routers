@@ -2,6 +2,7 @@
 #include <raylib.h>
 #include <raygui.h>
 #include <vx_utils.h>
+#include "dk_state.h"
 #include "dk_matrix.h"
 
 int main() {

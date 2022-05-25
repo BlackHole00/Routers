@@ -68,10 +68,14 @@ i32 dk_dijkstra_path(dk_Matrix* matrix, u32 start, u32 end, VX_T(i32, vx_Vector)
     // the current distance from the start node and the end node.
     i32* distance = vx_smalloc(sizeof(i32) * matrix->size);
     bool* visited = vx_smalloc(sizeof(bool) * matrix->size);
+    bool* reached = vx_smalloc(sizeof(bool) * matrix->size);
 
     memset(visited, 0, sizeof(bool) * matrix->size);
+    memset(reached, 0, sizeof(bool) * matrix->size);
     visited[start] = true;
+    reached[start] = true;
     int num_visited = 1;
+    int num_reached = 1;
 
     VX_T(VX_T(i32, vx_Vector), vx_Vector) paths = VX_T(VX_T(i32, vx_Vector), vx_vector_new)();
     for (int i = 0; i < matrix->size; i++) {
@@ -86,26 +90,38 @@ i32 dk_dijkstra_path(dk_Matrix* matrix, u32 start, u32 end, VX_T(i32, vx_Vector)
         distance[current_node_idx] = DK_INFINITY;
     }
 
-    for (int i = 0; num_visited < matrix->size; i++) {
+    for (int i = 0; num_visited < matrix->size && num_reached < matrix->size; i++) {
         int current_node_idx = (i + start) % matrix->size;
 
-        if (!visited[current_node_idx]) {
+        if (!reached[current_node_idx]) {
             continue;
+        } else {
+            if (!visited[current_node_idx]) {
+                visited[current_node_idx] = true;
+                num_visited++;
+            }
         }
 
         // iterate over all the other nodes.
         for (int j = 0; j < matrix->size; j++) {
+            printf("from %d to %d: cost %d vs %d ", current_node_idx, j, distance[current_node_idx] + DK_MATRIX_DATA(matrix, current_node_idx, j), distance[j]);
+
             if (DK_MATRIX_DATA(matrix, current_node_idx, j) == DK_NO_LINK ||
                 distance[current_node_idx] + DK_MATRIX_DATA(matrix, current_node_idx, j) >= distance[j]
             ) {
+                printf("NO\n");
                 continue;
             }
+
+            printf("YES\n");
 
             distance[j] = distance[current_node_idx] + DK_MATRIX_DATA(matrix, current_node_idx, j);
             VX_T(i32, vx_vector_clone)(&(VX_VD(&paths)[current_node_idx]), &(VX_VD(&paths)[j]));
             VX_T(i32, vx_vector_push)(&(VX_VD(&paths)[j]), j);
-            visited[j] = true;
-            num_visited++;
+            if (reached[j] != true) {
+                reached[j] = true;
+                num_reached++;
+            }
         }
 
         printf("%d\n", num_visited);
@@ -115,6 +131,7 @@ i32 dk_dijkstra_path(dk_Matrix* matrix, u32 start, u32 end, VX_T(i32, vx_Vector)
 
     VX_T(i32, vx_vector_clone)(&(VX_VD(&paths)[end]), buffer);
 
+    vx_free(reached);
     vx_free(distance);
     vx_free(visited);
     for (int i = 0; i < matrix->size; i++) {
